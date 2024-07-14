@@ -1,0 +1,518 @@
+{
+  "user": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "User",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "phone": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
+      },
+      "created_at": {
+        "type": "integer"
+      },
+      "first_name": {
+        "type": "string"
+      },
+      "last_name": {
+        "type": "string"
+      },
+      "color": {
+        "type": "string"
+      },
+      "photo": {
+        "type": ["string", "null"]
+      },
+      "lang": {
+        "type": "string"
+      }
+    },
+    "required": ["id", "phone", "email", "created_at", "first_name", "last_name", "color", "lang"]
+  },
+  "GetAllCompanies": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "owner_user_id": {
+        "type": "integer"
+      },
+      "employer_count_interval": {
+        "type": "integer"
+      },
+      "owner_post": {
+        "type": "string",
+        "format": "email"
+      },
+      "working_direction": {
+        "type": "string"
+      },
+      "billing_tariff_id": {
+        "type": "integer"
+      },
+      "created_at": {
+        "type": "integer"
+      },
+      "updated_at": {
+        "type": "integer"
+      },
+      "logo": {
+        "type": ["null", "string"]
+      },
+      "billing_is_over": {
+        "type": "boolean"
+      },
+      "companyOutboundWebhooks": {
+        "type": "array",
+        "items": {}
+      },
+      "currency_id": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "owner_user_id",
+      "employer_count_interval",
+      "owner_post",
+      "working_direction",
+      "billing_tariff_id",
+      "created_at",
+      "updated_at",
+      "logo",
+      "billing_is_over",
+      "companyOutboundWebhooks",
+      "currency_id"
+    ]
+  }
+},
+  "Info company": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Company",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "owner_user_id": {
+        "type": "integer"
+      },
+      "employer_count_interval": {
+        "type": "integer"
+      },
+      "owner_post": {
+        "type": "string",
+        "format": "email"
+      },
+      "working_direction": {
+        "type": "string"
+      },
+      "billing_tariff_id": {
+        "type": "integer"
+      },
+      "created_at": {
+        "type": "integer"
+      },
+      "updated_at": {
+        "type": "integer"
+      },
+      "logo": {
+        "type": ["string", "null"]
+      },
+      "billing_is_over": {
+        "type": "boolean"
+      },
+      "companyOutboundWebhooks": {
+        "type": "array",
+        "items": {}
+      },
+      "currency_id": {
+        "type": "integer"
+      }
+    },
+    "required": ["id", "name", "owner_user_id", "employer_count_interval", "owner_post", "working_direction", "billing_tariff_id", "created_at", "updated_at", "billing_is_over", "companyOutboundWebhooks", "currency_id"]
+  },
+  "Project id": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Project",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "company_id": {
+      "type": "integer"
+    },
+    "owner_user_id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "integer"
+    },
+    "status_changed_at": {
+      "type": ["integer", "null"]
+    },
+    "contractor_id": {
+      "type": ["integer", "null"]
+    },
+    "created_at": {
+      "type": "integer"
+    },
+    "updated_at": {
+      "type": "integer"
+    },
+    "is_available": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": ["string", "null"]
+    },
+    "address": {
+      "type": ["string", "null"]
+    },
+    "limitations": {
+      "type": ["object", "null"],
+      "properties": {
+        "start": {
+          "type": "integer"
+        },
+        "finish": {
+          "type": "integer"
+        }
+      },
+      "required": ["start", "finish"]
+    },
+    "completeness": {
+      "type": "integer"
+    },
+    "folder_id": {
+      "type": ["integer", "null"]
+    },
+    "manager_id": {
+      "type": ["integer", "null"]
+    },
+    "leader_id": {
+      "type": ["integer", "null"]
+    },
+    "contract": {
+      "type": ["string", "null"]
+    },
+    "contract_date": {
+      "type": ["integer", "null"]
+    },
+    "is_many_contractors": {
+      "type": "boolean"
+    },
+    "auto_write_off": {
+      "type": "boolean"
+    },
+    "role": {
+      "type": ["string", "null"]
+    },
+    "onSiteStock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "company_id": {
+          "type": "integer"
+        },
+        "created_at": {
+          "type": "integer"
+        },
+        "updated_at": {
+          "type": "integer"
+        },
+        "is_deleted": {
+          "type": "boolean"
+        },
+        "deleted_at": {
+          "type": ["integer", "null"]
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": ["id", "company_id", "created_at", "updated_at", "is_deleted", "name"]
+    }
+  },
+  "required": [
+    "id",
+    "company_id",
+    "owner_user_id",
+    "name",
+    "status",
+    "created_at",
+    "updated_at",
+    "is_available",
+    "completeness",
+    "is_many_contractors",
+    "auto_write_off",
+    "onSiteStock"
+  ]
+},
+  "Get projects": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "company_id": {
+        "type": "integer"
+      },
+      "owner_user_id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "status": {
+        "type": "integer"
+      },
+      "status_changed_at": {
+        "type": ["integer", "null"]
+      },
+      "contractor_id": {
+        "type": ["integer", "null"]
+      },
+      "created_at": {
+        "type": "integer"
+      },
+      "updated_at": {
+        "type": "integer"
+      },
+      "is_available": {
+        "type": "boolean"
+      },
+      "description": {
+        "type": ["string", "null"]
+      },
+      "address": {
+        "type": ["string", "null"]
+      },
+      "limitations": {
+        "type": ["object", "null"],
+        "properties": {
+          "start": {
+            "type": "integer"
+          },
+          "finish": {
+            "type": "integer"
+          }
+        },
+        "required": ["start", "finish"]
+      },
+      "completeness": {
+        "type": "integer"
+      },
+      "folder_id": {
+        "type": ["integer", "null"]
+      },
+      "manager_id": {
+        "type": ["integer", "null"]
+      },
+      "leader_id": {
+        "type": ["integer", "null"]
+      },
+      "contract": {
+        "type": ["string", "null"]
+      },
+      "contract_date": {
+        "type": ["integer", "null"]
+      },
+      "is_many_contractors": {
+        "type": "boolean"
+      },
+      "auto_write_off": {
+        "type": "boolean"
+      },
+      "role": {
+        "type": ["string", "null"]
+      },
+      "onSiteStock": {
+        "type": ["object", "null"],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "company_id": {
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "integer"
+          },
+          "updated_at": {
+            "type": "integer"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          },
+          "deleted_at": {
+            "type": ["integer", "null"]
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": ["string", "null"]
+          }
+        },
+        "required": ["id", "company_id", "created_at", "updated_at", "is_deleted", "name"]
+      }
+    },
+    "required": [
+      "id",
+      "company_id",
+      "owner_user_id",
+      "name",
+      "status",
+      "created_at",
+      "updated_at",
+      "is_available",
+      "completeness",
+      "is_many_contractors",
+      "auto_write_off"
+    ]
+  }
+},
+  "Create project": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Project",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "company_id": {
+        "type": "integer"
+      },
+      "owner_user_id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "status": {
+        "type": "integer"
+      },
+      "status_changed_at": {
+        "type": ["integer", "null"]
+      },
+      "contractor_id": {
+        "type": ["integer", "null"]
+      },
+      "created_at": {
+        "type": "integer"
+      },
+      "updated_at": {
+        "type": "integer"
+      },
+      "is_available": {
+        "type": "boolean"
+      },
+      "description": {
+        "type": ["string", "null"]
+      },
+      "address": {
+        "type": ["string", "null"]
+      },
+      "limitations": {
+        "type": ["object", "null"],
+        "properties": {
+          "start": {
+            "type": "integer"
+          },
+          "finish": {
+            "type": "integer"
+          }
+        },
+        "required": ["start", "finish"]
+      },
+      "completeness": {
+        "type": "integer"
+      },
+      "folder_id": {
+        "type": ["integer", "null"]
+      },
+      "manager_id": {
+        "type": ["integer", "null"]
+      },
+      "leader_id": {
+        "type": ["integer", "null"]
+      },
+      "contract": {
+        "type": ["string", "null"]
+      },
+      "contract_date": {
+        "type": ["integer", "null"]
+      },
+      "is_many_contractors": {
+        "type": "boolean"
+      },
+      "auto_write_off": {
+        "type": "boolean"
+      },
+      "role": {
+        "type": ["string", "null"]
+      },
+      "onSiteStock": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "company_id": {
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "integer"
+          },
+          "updated_at": {
+            "type": "integer"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          },
+          "deleted_at": {
+            "type": ["integer", "null"]
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": ["string", "null"]
+          }
+        },
+        "required": ["id", "company_id", "created_at", "updated_at", "is_deleted", "name"]
+      }
+    },
+    "required": ["id", "company_id", "owner_user_id", "name", "status", "created_at", "updated_at", "is_available", "completeness", "is_many_contractors", "auto_write_off", "onSiteStock"]
+  }
+}
